@@ -12,18 +12,20 @@ public class exercise {
         // create new scanner
         Scanner input = new Scanner(System.in);
 
-        // read values
-        System.out.print("Enter the principle: ");
-        double principle = input.nextDouble();
-        System.out.print("Enter the rate of interest: ");
+        // record new values
+        System.out.print("What is the principle amount? ");
+        int principle = input.nextInt();
+        System.out.print("What is the rate? ");
         double rate = input.nextDouble();
-        System.out.print("Enter the number of years: ");
+        System.out.print("What is the number of years? ");
         int years = input.nextInt();
+        System.out.print("What is the number of times the interest is compounded per year? ");
+        int times = input.nextInt();
 
-        // calculate worth
-        int worth = (int)Math.round(principle * (1 + (rate / 100 * years)));
+        // calculate
+        double compounded_interest = principle * Math.pow(1 + ((rate / 100) / times), times * years);
 
-        // output results
-        System.out.print("After " + years + " years at " + rate + "%, the investment will be worth $" + worth + ".");
+        // output compounded interest
+        System.out.printf("$%d invested at %.1f%% for %d years compounded %d times per year is $%.2f.", principle, rate, years, times, compounded_interest);
     }
 }
